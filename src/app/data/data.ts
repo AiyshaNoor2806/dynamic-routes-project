@@ -1,3 +1,6 @@
+import React from "react"
+import country_name from "../components/CountryName"
+import '@/app'
 const countries:{
     name:string,
     capital:string,
@@ -27,5 +30,10 @@ const countries:{
     capital:"Kabul",
     population: 41130000,
 }]
+ 
 
-export default countries
+
+
+
+
+
