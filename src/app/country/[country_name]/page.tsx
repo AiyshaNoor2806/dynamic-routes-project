@@ -1,14 +1,14 @@
 
 import countries from "@/app/data/data";
 import Link from "next/link";
+import CountryNames from "@/app/components/CountryName";
 
 export default function CountryName({params}:{params:{country_name:string}}) {
 
    
 
     function findCountry(country_url:string){
-        // console.log(country_url)
-        // console.log(countries.find(country => country.name))
+
         return countries.find(country => country.name.toLowerCase() === country_url.toLowerCase())
     }
 
@@ -16,14 +16,12 @@ export default function CountryName({params}:{params:{country_name:string}}) {
         
     return(
         <div>
-            <h1>Go To <Link href={'/country'}>Home</Link></h1>
+            <h1 className="bg-red-400">Go To <Link href={'/'}>Home</Link></h1>
             <br />
             {
                 result ? (
                     <>
-                    <h1>Country Name: {result.name}</h1>
-                    <h2>Country Capital: {result.capital} </h2>
-                    <h3>Country Population: {result.population} </h3>  
+                    <CountryNames name={result.name} population={result.population} capital={result.capital}/>  
                      </>
                 ) : (
                     <h1>country not found</h1>
